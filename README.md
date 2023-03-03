@@ -5,7 +5,11 @@
 <p align= "center">
     <a href="https://git.io/typing-svg">
         <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=35AB40&center=true&vCenter=true&width=435&lines=%F0%9F%9B%B6+Battle+Ghe+%F0%9F%9B%B6" alt="Typing SVG" /></a>
-    <a href="#"> <img  width="300" src="./img/title2.png" alt="Battleship" /> </a>
+</p>
+
+<p align= "center">
+    <a href="#"> 
+        <img  width="300" src="./img/title2.png" alt="Battleship" /> </a>
 </p>
 
 <p align ="center">
