@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
    public static bool GameIsPaused = false;
-   public GameObject pauseMenuUI;
+   [SerializeField] GameObject pauseMenuUI;
    void update() {
         if(Input.GetKeyDown(KeyCode.P)){
             if(GameIsPaused) {
@@ -21,12 +21,12 @@ public class PauseMenu : MonoBehaviour
    }
 
    public void Resume() {
-        pauseMenu.setActive(false);
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
    }
    public void Pause(){
-        pauseMenu.setActive(true);
+        pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
    }
