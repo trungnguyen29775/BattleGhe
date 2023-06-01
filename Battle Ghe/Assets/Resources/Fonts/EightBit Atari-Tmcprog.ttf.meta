@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Battle Ghe/Assets/Resources/Fonts/EightBit Atari-Tmcprog.ttf.meta
 guid: 78cd4ed81875de64bba2819e96b1c7d4
+=======
+guid: a4e320012236a4d84ae099f2e182c07e
+>>>>>>> cd4d33101e8b94186cb1efe1d58e571387496ccf:Battle Ghe/Assets/Fonts/EightBit Atari-Tmcprog.ttf.meta
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,8 +14,12 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - EightBit Atari
+<<<<<<< HEAD:Battle Ghe/Assets/Resources/Fonts/EightBit Atari-Tmcprog.ttf.meta
   fallbackFontReferences:
   - {fileID: 12800000, guid: b790b062f258cc246babce4a22c9ebf3, type: 3}
+=======
+  fallbackFontReferences: []
+>>>>>>> cd4d33101e8b94186cb1efe1d58e571387496ccf:Battle Ghe/Assets/Fonts/EightBit Atari-Tmcprog.ttf.meta
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Battle Ghe/Assets/Resources/Boats/boat(grey).png.meta
-guid: 643c71bc0890ee54ba33d32fd944f72d
-========
-guid: 16632affec9bc479680282eceb2dbc9c
->>>>>>>> cd4d33101e8b94186cb1efe1d58e571387496ccf:Battle Ghe/Assets/GameTitle.png.meta
+guid: 7cba496e428d2452a99b89a3eae6b845
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
