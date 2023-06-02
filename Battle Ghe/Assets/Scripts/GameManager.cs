@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
         headText.color = Color.red;
         headText.text = "Enemy's turn";
         enemyScript.EnemyTurn();
-        AudioManager.Instance.PlaySFX("shoot");
+        AudioManager.Instance.PlaySFX("shoot2");
         ColorAllTiles(0);
         if (playerBoatCounter < 1) GameOver("You are defeated\nYou Lose"); 
 
