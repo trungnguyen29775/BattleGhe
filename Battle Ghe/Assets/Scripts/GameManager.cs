@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -56,10 +57,15 @@ public class GameManager : MonoBehaviour
     private List<GameObject> playerFires = new List<GameObject>();
     private List<GameObject> enemyFires = new List<GameObject>();
 
+    //Music and Sound Effect
+    private AudioManager musicManager;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1.0f;
         if (!PauseMenu.GameIsPaused)
         {
             boatScript = boats[boatIndex].GetComponent<BoatScript>();
@@ -68,9 +74,8 @@ public class GameManager : MonoBehaviour
             replayGameButton.onClick.AddListener(() => ReplayGamePressed());
             quitGameButton.onClick.AddListener(() => QuitGamePressed());
             pauseGameButton.onClick.AddListener(() => PauseGamePressed());
-        } else pauseGameButton.onClick.AddListener(() => PauseGamePressed());
+        }
         enemyBoats = enemyScript.EnemyDeploy();
-
     }
 
     
@@ -139,7 +144,8 @@ public class GameManager : MonoBehaviour
 
     private void PauseGamePressed()
     {
-        pauseMenu.PauseGame();
+        Time.timeScale = 0.0f;
+        pauseMenu.Pause();
     }
 
     private void setBoatPressedTile(GameObject tile)
@@ -271,7 +277,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ReplayGamePressed()
+    void ReplayGamePressed()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

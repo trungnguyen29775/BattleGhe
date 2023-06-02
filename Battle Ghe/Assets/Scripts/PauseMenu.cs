@@ -26,37 +26,32 @@ public class PauseMenu : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         resumeBtn.onClick.AddListener(() => Resume());
         returnMenuBtn.onClick.AddListener(() => ReturnMain());
-        restartBtn.onClick.AddListener(() => gameManager.ReplayGamePressed());
+        restartBtn.onClick.AddListener(() => ReplayGamePressed());
     }
 
-    public void PauseGame()
-    {
-        if (GameIsPaused)
-        {
-            Resume();
-        }
-        else 
-        {
-            Pause();
-        }
-    }
 
-   public void Resume() {
+   private void Resume() {
+        Time.timeScale = 1.0f;
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         GameIsPaused = false;
    }
    public void Pause(){
+        Time.timeScale = 0.0f;
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
         GameIsPaused = true;
    }
-   public void ReturnMain() {
+   private void ReturnMain() {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-   public void Setting(int sceneID) {
+   private void Setting(int sceneID) {
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneID);
    }
+
+    private void ReplayGamePressed()
+    {
+        SceneManager.LoadScene("gameplay");
+        GameIsPaused = false;
+    }
 }

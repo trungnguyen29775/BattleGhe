@@ -22,17 +22,21 @@ public class TileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if(!PauseMenu.GameIsPaused)
         {
-            if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.name == gameObject.name)
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
             {
-                if (missleHit == false)
+                if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.name == gameObject.name)
                 {
-                    gameManager.TilePressed(hit.collider.gameObject);
+                    if (missleHit == false)
+                    {
+                        gameManager.TilePressed(hit.collider.gameObject);
+                    }
                 }
             }
         }
+        
     }
 
     public void OnCollisionEnter(Collision collision)
