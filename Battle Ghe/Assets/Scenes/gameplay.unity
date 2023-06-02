@@ -3482,6 +3482,8 @@ MonoBehaviour:
   musicSounds:
   - name: backgroundMusic
     clip: {fileID: 8300000, guid: 7096920173132654ca4e7e6b1c00d029, type: 3}
+  - name: oceanSound
+    clip: {fileID: 8300000, guid: af3a0b32957e3d044b9498e25af4a2d8, type: 3}
   sfxSound:
   - name: shoot
     clip: {fileID: 8300000, guid: ce717da12a32610418dc61306c7072a5, type: 3}
@@ -3495,6 +3497,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4d006058c97f57a4ba3e7a0c8f0f4ff0, type: 3}
   - name: explode
     clip: {fileID: 8300000, guid: 54ee4348501159347be0d19cfe9d1000, type: 3}
+  - name: wave
+    clip: {fileID: 8300000, guid: e265eb3bd77587a4999f638bbfa4c05c, type: 3}
   musicSource: {fileID: 2083006342}
   sfxSource: {fileID: 1480221357}
 --- !u!114 &1424113252 stripped
@@ -3636,7 +3640,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5682,7 +5686,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 1
   Mute: 0

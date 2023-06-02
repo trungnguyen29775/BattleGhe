@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         if (!PauseMenu.GameIsPaused)
         {
-            AudioManager.Instance.PlayMusic("backgroundMusic");
+            AudioManager.Instance.PlayMusic("oceanSound");
             boatScript = boats[boatIndex].GetComponent<BoatScript>();
             nextBoatButton.onClick.AddListener(() => NextBoat());
             rotateBoatButton.onClick.AddListener(() => RotateBoat());
@@ -78,8 +79,6 @@ public class GameManager : MonoBehaviour
         }
         enemyBoats = enemyScript.EnemyDeploy();
     }
-
-    
 
     public void TilePressed(GameObject tile)
     {
@@ -93,6 +92,7 @@ public class GameManager : MonoBehaviour
         } else if (!setupComplete)
         {
             PlaceBoat(tile);
+            AudioManager.Instance.PlaySFX("wave");
             boatScript.SetPressedTile(tile);
         }
     }
@@ -129,6 +129,7 @@ public class GameManager : MonoBehaviour
                 invisibleSquare.gameObject.SetActive(false);
                 headText.color = Color.white;
                 headText.text = "Find enemy boats location!!";
+                AudioManager.Instance.PlayMusic("backgroundMusic");
                 setupComplete = true;
 
                 for (int i = 0; i < boats.Length; i++)
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
     private void RotateBoat()
     {
         boatScript.RotateBoat();
+        AudioManager.Instance.PlaySFX("wave");
     }
 
     private void PauseGamePressed()
