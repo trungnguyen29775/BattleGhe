@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -56,24 +58,27 @@ public class GameManager : MonoBehaviour
     private List<GameObject> playerFires = new List<GameObject>();
     private List<GameObject> enemyFires = new List<GameObject>();
 
+    //Music and Sound Effect
+    private AudioManager musicManager;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1.0f;
         if (!PauseMenu.GameIsPaused)
         {
+            AudioManager.Instance.PlayMusic("oceanSound");
             boatScript = boats[boatIndex].GetComponent<BoatScript>();
             nextBoatButton.onClick.AddListener(() => NextBoat());
             rotateBoatButton.onClick.AddListener(() => RotateBoat());
             replayGameButton.onClick.AddListener(() => ReplayGamePressed());
             quitGameButton.onClick.AddListener(() => QuitGamePressed());
             pauseGameButton.onClick.AddListener(() => PauseGamePressed());
-        } else pauseGameButton.onClick.AddListener(() => PauseGamePressed());
+        }
         enemyBoats = enemyScript.EnemyDeploy();
-
     }
-
-    
 
     public void TilePressed(GameObject tile)
     {
@@ -83,9 +88,11 @@ public class GameManager : MonoBehaviour
             tilePos.y = 5;
             playerTurn = false;
             Instantiate(missilePrefab, tilePos, missilePrefab.transform.rotation);
+            AudioManager.Instance.PlaySFX("shoot");
         } else if (!setupComplete)
         {
             PlaceBoat(tile);
+            AudioManager.Instance.PlaySFX("wave");
             boatScript.SetPressedTile(tile);
         }
     }
@@ -120,7 +127,9 @@ public class GameManager : MonoBehaviour
                 nextBoatButton.gameObject.SetActive(false);
                 deloyDeck.gameObject.SetActive(false);
                 invisibleSquare.gameObject.SetActive(false);
-                headText.text = "Your turn.\nFind enemy boats location!!";
+                headText.color = Color.white;
+                headText.text = "Find enemy boats location!!";
+                AudioManager.Instance.PlayMusic("backgroundMusic");
                 setupComplete = true;
 
                 for (int i = 0; i < boats.Length; i++)
@@ -135,11 +144,13 @@ public class GameManager : MonoBehaviour
     private void RotateBoat()
     {
         boatScript.RotateBoat();
+        AudioManager.Instance.PlaySFX("wave");
     }
 
     private void PauseGamePressed()
     {
-        pauseMenu.PauseGame();
+        Time.timeScale = 0.0f;
+        pauseMenu.Pause();
     }
 
     private void setBoatPressedTile(GameObject tile)
@@ -171,6 +182,7 @@ public class GameManager : MonoBehaviour
                 {
                     enemyBoatCounter--;
                     headText.text = "SUNKKK!!";
+                    AudioManager.Instance.PlaySFX("explode");
                     //  Sunk
                     enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.5f, 0.3f), Quaternion.Euler(90f, 0f, 0)));
                     //  Color
@@ -180,7 +192,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     // Hit
-                    // Color
+                    // Color and SFX
+                    AudioManager.Instance.PlaySFX("hitBoat");
                     enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.5f,0.3f), Quaternion.Euler(90f, 0f, 0)));
                     tile.GetComponent<TileScript>().SetTileColor(1, new Color32(255, 0, 0, 255));
                     tile.GetComponent<TileScript>().SwitchColors(1);
@@ -192,7 +205,8 @@ public class GameManager : MonoBehaviour
         if (hitCount == 0)
         {
             // Missed
-            // Color
+            // Color and SFX
+            AudioManager.Instance.PlaySFX("hitEmpty");
             tile.GetComponent<TileScript>().SetTileColor(1, new Color32(38, 57, 76, 255));
             tile.GetComponent<TileScript>().SwitchColors(1);
             headText.text = "You Missed!!";
@@ -202,18 +216,18 @@ public class GameManager : MonoBehaviour
 
     public void EnemyHitPlayer(Vector3 tile, int tileNum, GameObject hitObj)
     {
-
+        AudioManager.Instance.PlaySFX("burn");
         enemyScript.MissileHit(tileNum);
         tile.y += 0.5f;
         tile.z += 0.3f;
         playerFires.Add(Instantiate(firePrefab, tile, Quaternion.Euler(90.0f, 0f, 0f)));
-        if(hitObj.GetComponent<BoatScript>().HitCheckSank())
+        if (hitObj.GetComponent<BoatScript>().HitCheckSank())
         {
             playerBoatCounter--;
             //playerText.text = playerBoatCounter.ToString();
             enemyScript.SunkPlayer();
         }
-        Invoke("EndEnemyTurn", 2.0f);
+        Invoke("EndEnemyTurn", 2f);
     }
 
     public void EndPlayerTurn()
@@ -226,8 +240,10 @@ public class GameManager : MonoBehaviour
         foreach (GameObject fire in playerFires) fire.SetActive(true);
         foreach (GameObject fire in enemyFires) fire.SetActive(false);
         //enemyText.text = enemyBoatCounter.ToString();
+        headText.color = Color.red;
         headText.text = "Enemy's turn";
         enemyScript.EnemyTurn();
+        AudioManager.Instance.PlaySFX("shoot2");
         ColorAllTiles(0);
         if (playerBoatCounter < 1) GameOver("You are defeated\nYou Lose"); 
 
@@ -243,6 +259,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject fire in playerFires) fire.SetActive(false);
         foreach (GameObject fire in enemyFires) fire.SetActive(true);
         //playerText.text = playerBoatCounter.ToString();
+        headText.color = Color.yellow;
         headText.text = "Your's turn";
         playerTurn = true;
         ColorAllTiles(1);
@@ -260,7 +277,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver(string winner)
     {
-
+        Time.timeScale = 0.0f;
         componentlight.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true) ;
         gameOverUI.gameObject.SetActive(true);
@@ -271,7 +288,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ReplayGamePressed()
+    void ReplayGamePressed()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
