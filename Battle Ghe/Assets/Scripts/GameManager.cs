@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     public Button replayGameButton;
     public Button quitGameButton;
 
+    [Header("PauseMenu")]
+    public Button pauseGameButton;
+    public PauseMenu pauseMenu;
 
     private bool setupComplete = false;
     private bool playerTurn = true;
@@ -62,9 +65,13 @@ public class GameManager : MonoBehaviour
         rotateBoatButton.onClick.AddListener(() => RotateBoat());
         replayGameButton.onClick.AddListener(() => ReplayGamePressed());
         quitGameButton.onClick.AddListener(() => QuitGamePressed());
+        pauseGameButton.onClick.AddListener(() => PauseGamePressed());
+
         enemyBoats = enemyScript.EnemyDeploy();
 
     }
+
+    
 
     public void TilePressed(GameObject tile)
     {
@@ -126,6 +133,11 @@ public class GameManager : MonoBehaviour
     private void RotateBoat()
     {
         boatScript.RotateBoat();
+    }
+
+    private void PauseGamePressed()
+    {
+        pauseMenu.PauseGame();
     }
 
     private void setBoatPressedTile(GameObject tile)
@@ -257,7 +269,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void ReplayGamePressed()
+    public void ReplayGamePressed()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
