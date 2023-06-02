@@ -13,14 +13,12 @@ public class MainScript : MonoBehaviour
     public Button quitButton;
     public GameObject MainUI;
 
-    [SerializeField] private AudioSource theme;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlayMusic("theme");
         PauseMenu.GameIsPaused = true;
-        theme.Play();
         startButton.onClick.AddListener(() => StartGame());
         optionButton.onClick.AddListener(() => OptionMenu());
         quitButton.onClick.AddListener(() => Application.Quit());
@@ -28,6 +26,7 @@ public class MainScript : MonoBehaviour
 
     private void StartGame()
     {
+        AudioManager.Instance.PlaySFX("clicked");
         Time.timeScale = 1f;
         PauseMenu.GameIsPaused = false;
         SceneManager.LoadScene("gameplay");
@@ -35,6 +34,7 @@ public class MainScript : MonoBehaviour
 
     private void OptionMenu()
     {
+        AudioManager.Instance.PlaySFX("clicked");
         //AudioManager.Instance.musicSource.Pause();
         //Time.timeScale = 0.0f;
         //pauseMenuUI.SetActive(true);
