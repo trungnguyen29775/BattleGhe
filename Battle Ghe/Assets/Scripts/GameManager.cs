@@ -45,9 +45,14 @@ public class GameManager : MonoBehaviour
     public Button replayGameButton;
     public Button quitGameButton;
 
+
+
     [Header("PauseMenu")]
     public Button pauseGameButton;
     public PauseMenu pauseMenu;
+
+    [Header("StartMenu")]
+    public GameObject startMenu;
 
     private bool setupComplete = false;
     private bool playerTurn = true;
@@ -61,12 +66,9 @@ public class GameManager : MonoBehaviour
     //Music and Sound Effect
     private AudioManager musicManager;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1.0f;
         if (!PauseMenu.GameIsPaused)
         {
             AudioManager.Instance.PlayMusic("oceanSound");
@@ -184,7 +186,7 @@ public class GameManager : MonoBehaviour
                     headText.text = "SUNKKK!!";
                     AudioManager.Instance.PlaySFX("explode");
                     //  Sunk
-                    enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.5f, 0.3f), Quaternion.Euler(90f, 0f, 0)));
+                    enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.7f, 0.3f), Quaternion.Euler(90f, 0f, 0)));
                     //  Color
                     tile.GetComponent<TileScript>().SetTileColor(1, new Color32(68, 0, 0, 255));
                     tile.GetComponent<TileScript>().SwitchColors(1);
@@ -194,7 +196,7 @@ public class GameManager : MonoBehaviour
                     // Hit
                     // Color and SFX
                     AudioManager.Instance.PlaySFX("hitBoat");
-                    enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.5f,0.3f), Quaternion.Euler(90f, 0f, 0)));
+                    enemyFires.Add(Instantiate(firePrefab, tile.transform.position + new Vector3(0f, 0.7f,0.3f), Quaternion.Euler(90f, 0f, 0)));
                     tile.GetComponent<TileScript>().SetTileColor(1, new Color32(255, 0, 0, 255));
                     tile.GetComponent<TileScript>().SwitchColors(1);
                     headText.text = "HIT!!";
@@ -290,7 +292,8 @@ public class GameManager : MonoBehaviour
 
     void ReplayGamePressed()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("gameplay");
     }
 
     void QuitGamePressed()

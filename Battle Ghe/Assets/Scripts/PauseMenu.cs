@@ -9,26 +9,21 @@ public class PauseMenu : MonoBehaviour
   
     public static bool GameIsPaused = false;
     
-    [SerializeField] GameObject pauseMenuUI;
-    
-    public GameManager gameManager;
+    [SerializeField] public GameObject pauseMenuUI;
 
     [Header("UI")]
     public Button resumeBtn;
     public Button returnMenuBtn;
     public Button restartBtn;
-    public Button settingBtn;
     public Text text;
-
 
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         resumeBtn.onClick.AddListener(() => Resume());
         returnMenuBtn.onClick.AddListener(() => ReturnMain());
         restartBtn.onClick.AddListener(() => ReplayGamePressed());
     }
-
 
    private void Resume() {
         Time.timeScale = 1.0f;
@@ -44,15 +39,13 @@ public class PauseMenu : MonoBehaviour
    }
    private void ReturnMain() {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("main");
+        GameIsPaused = false;
     }
-   private void Setting(int sceneID) {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneID);
-   }
 
     private void ReplayGamePressed()
     {
+        Time.timeScale = 1f;
         AudioManager.Instance.musicSource.Stop();
         SceneManager.LoadScene("gameplay");
         GameIsPaused = false;
