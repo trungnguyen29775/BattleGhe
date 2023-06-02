@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("burn");
         enemyScript.MissileHit(tileNum);
-        tile.y += 0.5f;
+        tile.y += 0.9f;
         tile.z += 0.3f;
         playerFires.Add(Instantiate(firePrefab, tile, Quaternion.Euler(90.0f, 0f, 0f)));
         if (hitObj.GetComponent<BoatScript>().HitCheckSank())
@@ -247,7 +247,7 @@ public class GameManager : MonoBehaviour
         enemyScript.EnemyTurn();
         AudioManager.Instance.PlaySFX("shoot2");
         ColorAllTiles(0);
-        if (playerBoatCounter < 1) GameOver("You are defeated\nYou Lose"); 
+        if (playerBoatCounter < 1) GameOver(0); 
 
     }
 
@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
         headText.text = "Your's turn";
         playerTurn = true;
         ColorAllTiles(1);
-        if (enemyBoatCounter < 1) GameOver("Enemy are defeated\nYou Win");
+        if (enemyBoatCounter < 1) GameOver(1);
 
     }
 
@@ -277,15 +277,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GameOver(string winner)
+    void GameOver(int winner)
     {
         Time.timeScale = 0.0f;
-        componentlight.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySFX("burn");
+        //componentlight.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true) ;
         gameOverUI.gameObject.SetActive(true);
         replayGameButton.gameObject.SetActive(true) ;
         quitGameButton.gameObject.SetActive(true) ;
-        gameOverText.text = winner;
+
+        if (winner == 1)
+        {
+            gameOverText.color = Color.yellow;
+            gameOverText.text = "Enemy are defeated\nYou Win";
+        } else if (winner == 0)
+        {
+            gameOverText.color = Color.red;
+            gameOverText.text = "You are defeated\nYou Lose";
+
+        }
+        
         playerTurn = false;
     }
 
