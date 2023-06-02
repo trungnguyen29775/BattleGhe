@@ -18,6 +18,8 @@ public class PauseMenu : MonoBehaviour
     public Button returnMenuBtn;
     public Button restartBtn;
     public Button settingBtn;
+    public Text text;
+
 
     void Start()
     {

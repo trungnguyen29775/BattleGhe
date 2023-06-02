@@ -60,13 +60,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boatScript = boats[boatIndex].GetComponent<BoatScript>();
-        nextBoatButton.onClick.AddListener(() => NextBoat());
-        rotateBoatButton.onClick.AddListener(() => RotateBoat());
-        replayGameButton.onClick.AddListener(() => ReplayGamePressed());
-        quitGameButton.onClick.AddListener(() => QuitGamePressed());
-        pauseGameButton.onClick.AddListener(() => PauseGamePressed());
-
+        if (!PauseMenu.GameIsPaused)
+        {
+            boatScript = boats[boatIndex].GetComponent<BoatScript>();
+            nextBoatButton.onClick.AddListener(() => NextBoat());
+            rotateBoatButton.onClick.AddListener(() => RotateBoat());
+            replayGameButton.onClick.AddListener(() => ReplayGamePressed());
+            quitGameButton.onClick.AddListener(() => QuitGamePressed());
+            pauseGameButton.onClick.AddListener(() => PauseGamePressed());
+        } else pauseGameButton.onClick.AddListener(() => PauseGamePressed());
         enemyBoats = enemyScript.EnemyDeploy();
 
     }
