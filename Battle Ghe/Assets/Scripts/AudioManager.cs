@@ -9,18 +9,7 @@ public class AudioManager : MonoBehaviour
     [Header("Music")]
     public Sound[] musicSounds, sfxSound;
     public AudioSource musicSource, sfxSource;
-
-    private static bool backgroundMusic = false;
     public static AudioManager Instance;
-
-    //private void Start()
-    //{
-    //    if (!PauseMenu.GameIsPaused)
-    //    {
-    //        PlayMusic("backgroundMusic");
-    //    } 
- 
-    //}
 
     private void Update()
     {
