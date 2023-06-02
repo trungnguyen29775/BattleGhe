@@ -13,14 +13,14 @@ public class AudioManager : MonoBehaviour
     private static bool backgroundMusic = false;
     public static AudioManager Instance;
 
-    private void Start()
-    {
-        if (!PauseMenu.GameIsPaused)
-        {
-            PlayMusic("backgroundMusic");
-        } 
+    //private void Start()
+    //{
+    //    if (!PauseMenu.GameIsPaused)
+    //    {
+    //        PlayMusic("backgroundMusic");
+    //    } 
  
-    }
+    //}
 
     private void Update()
     {

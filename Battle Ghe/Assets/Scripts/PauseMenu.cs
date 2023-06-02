@@ -33,9 +33,11 @@ public class PauseMenu : MonoBehaviour
    private void Resume() {
         Time.timeScale = 1.0f;
         pauseMenuUI.SetActive(false);
+        AudioManager.Instance.musicSource.UnPause();
         GameIsPaused = false;
    }
    public void Pause(){
+        AudioManager.Instance.musicSource.Pause();
         Time.timeScale = 0.0f;
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
@@ -51,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     private void ReplayGamePressed()
     {
+        AudioManager.Instance.musicSource.Stop();
         SceneManager.LoadScene("gameplay");
         GameIsPaused = false;
     }

@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         if (!PauseMenu.GameIsPaused)
         {
+            AudioManager.Instance.PlayMusic("backgroundMusic");
             boatScript = boats[boatIndex].GetComponent<BoatScript>();
             nextBoatButton.onClick.AddListener(() => NextBoat());
             rotateBoatButton.onClick.AddListener(() => RotateBoat());
