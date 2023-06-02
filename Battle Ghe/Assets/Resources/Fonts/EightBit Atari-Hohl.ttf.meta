@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Battle Ghe/Assets/Resources/Fonts/EightBit Atari-Hohl.ttf.meta
 guid: deacfe4605148124d86c55d0a4c1bdc0
+=======
+guid: 093e37afafde648859f36f80663097fe
+>>>>>>> cd4d33101e8b94186cb1efe1d58e571387496ccf:Battle Ghe/Assets/Fonts/EightBit Atari-Hohl.ttf.meta
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,8 +15,13 @@ TrueTypeFontImporter:
   fontNames:
   - EightBit Atari
   fallbackFontReferences:
+<<<<<<< HEAD:Battle Ghe/Assets/Resources/Fonts/EightBit Atari-Hohl.ttf.meta
   - {fileID: 12800000, guid: 78cd4ed81875de64bba2819e96b1c7d4, type: 3}
   - {fileID: 12800000, guid: b790b062f258cc246babce4a22c9ebf3, type: 3}
+=======
+  - {fileID: 12800000, guid: 257dd0d66caa640fc96d0dcb6c2c048c, type: 3}
+  - {fileID: 12800000, guid: a4e320012236a4d84ae099f2e182c07e, type: 3}
+>>>>>>> cd4d33101e8b94186cb1efe1d58e571387496ccf:Battle Ghe/Assets/Fonts/EightBit Atari-Hohl.ttf.meta
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
