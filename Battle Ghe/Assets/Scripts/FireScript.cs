@@ -5,9 +5,10 @@ using UnityEngine;
 public class FireScript : MonoBehaviour
 {
     public GameObject fire;
+    List<Color> fireColors = new List<Color> { Color.red, Color.yellow, new Color(1.0f, 0.64f, 0) };
+
     int count;
 
-    List<Color> fireColors = new List<Color> { Color.red, Color.yellow, new Color(1.0f, 0.64f, 0) };
 
 
     void FixedUpdate()

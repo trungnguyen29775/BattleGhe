@@ -7,15 +7,13 @@ using UnityEngine.UIElements;
 
 public class BoatScript : MonoBehaviour
 {
-    
-    
-    public float xOffset = 0;
-    public float zOffset = 0;
-    public float nextZRotation = 90f;
-
     private GameObject pressedTile;
     private int hitCount = 0;
     public int boatSize;
+
+    public float xOffset = 0;
+    public float zOffset = 0;
+    public float nextZRotation = 90f;
 
     private Material[] allMaterials;
 
