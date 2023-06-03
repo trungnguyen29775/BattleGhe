@@ -82,7 +82,14 @@ public class EnemyScript : MonoBehaviour
         return enemyBoats;
     }
 
-    public void EnemyTurn()
+    public void MissileHit(int hit)
+    {
+        guessGrid[guess] = 'h';
+        Invoke("EndTurn", 1.0f);
+
+    }
+    
+     public void EnemyTurn()
     {
         List<int> hitIndex = new List<int>();
         for (int i = 0; i < guessGrid.Length; i++)
@@ -137,14 +144,6 @@ public class EnemyScript : MonoBehaviour
         GameObject missile = Instantiate(enemyMissilePrefab, vec, enemyMissilePrefab.transform.rotation);
         missile.GetComponent<EnemyMissileScript>().SetTarget(guess);
         missile.GetComponent<EnemyMissileScript>().targetTileLocation = tile.transform.position;
-    }
-
-
-    public void MissileHit(int hit)
-    {
-        guessGrid[guess] = 'h';
-        Invoke("EndTurn", 1.0f);
-
     }
 
     public void SunkPlayer()
