@@ -24,14 +24,6 @@ public class MainScript : MonoBehaviour
         quitButton.onClick.AddListener(() => Application.Quit());
     }
 
-    private void StartGame()
-    {
-        AudioManager.Instance.PlaySFX("clicked");
-        Time.timeScale = 1f;
-        PauseMenu.GameIsPaused = false;
-        SceneManager.LoadScene("gameplay");
-    }
-
     private void OptionMenu()
     {
         AudioManager.Instance.PlaySFX("clicked");
@@ -41,5 +33,12 @@ public class MainScript : MonoBehaviour
         //GameIsPaused = true;
     }
 
+    private void StartGame()
+    {
+        AudioManager.Instance.PlaySFX("clicked");
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
+        SceneManager.LoadScene("gameplay");
+    }
 
 }
