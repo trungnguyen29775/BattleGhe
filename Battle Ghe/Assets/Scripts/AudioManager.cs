@@ -16,18 +16,6 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public void PlayMusic(string name)
     {
@@ -44,6 +32,20 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sfxSound, x => x.name == name);
