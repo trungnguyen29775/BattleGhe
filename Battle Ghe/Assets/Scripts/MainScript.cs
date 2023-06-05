@@ -19,17 +19,14 @@ public class MainScript : MonoBehaviour
         AudioManager.Instance.PlayMusic("theme");
         PauseMenu.GameIsPaused = true;
         startButton.onClick.AddListener(() => StartGame());
-        optionButton.onClick.AddListener(() => OptionMenu());
-        quitButton.onClick.AddListener(() => Application.Quit());
+        optionButton.onClick.AddListener(() => OptionButtonPressed());
+        quitButton.onClick.AddListener(() => QuitGame());
     }
 
-    private void OptionMenu()
+    private void OptionButtonPressed()
     {
         AudioManager.Instance.PlaySFX("clicked");
-        //AudioManager.Instance.musicSource.Pause();
-        //Time.timeScale = 0.0f;
-        //pauseMenuUI.SetActive(true);
-        //GameIsPaused = true;
+        SceneManager.LoadScene("option");
     }
 
     private void StartGame()
@@ -38,6 +35,12 @@ public class MainScript : MonoBehaviour
         Time.timeScale = 1f;
         PauseMenu.GameIsPaused = false;
         SceneManager.LoadScene("gameplay");
+    }
+
+    private void QuitGame()
+    {
+        AudioManager.Instance.PlaySFX("clicked");
+        Application.Quit();
     }
 
 }
