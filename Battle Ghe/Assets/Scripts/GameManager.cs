@@ -82,31 +82,41 @@ public class GameManager : MonoBehaviour
         enemyBoats = enemyScript.EnemyDeploy();
     }
 
+    
+    // Pressing 
     public void TilePressed(GameObject tile)
     {
         if (setupComplete && playerTurn)
         {
-            Vector3 tilePos = tile.transform.position;
-            tilePos.y = 5;
-            playerTurn = false;
-            Instantiate(missilePrefab, tilePos, missilePrefab.transform.rotation);
-            AudioManager.Instance.PlaySFX("shoot");
+            PlayerShoot(tile);
         } else if (!setupComplete)
         {
             PlaceBoat(tile);
-            AudioManager.Instance.PlaySFX("wave");
-            boatScript.SetPressedTile(tile);
         }
     }
 
     private void PlaceBoat(GameObject tile)
     {
+        AudioManager.Instance.PlaySFX("wave");
         boatScript = boats[boatIndex].GetComponent<BoatScript>();
         boatScript.ClearTileList();
         Vector3 newVec = boatScript.GetOffsetVec(tile.transform.position);
         boats[boatIndex].transform.localPosition = newVec;
+        boatScript.SetPressedTile(tile);
     }
 
+    private void PlayerShoot(GameObject tile)
+    {
+        AudioManager.Instance.PlaySFX("shoot"); //Shoot A
+        Vector3 tilePos = tile.transform.position;
+        tilePos.y = 5;
+        playerTurn = false;
+        Instantiate(missilePrefab, tilePos, missilePrefab.transform.rotation);
+        
+    }
+
+
+    // gameplay Button
     private void NextBoat()
     {
         if(!boatScript.OnGameBoard())
@@ -149,11 +159,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlaySFX("wave");
     }
 
-    private void PauseGamePressed()
-    {
-        Time.timeScale = 0.0f;
-        pauseMenu.Pause();
-    }
+    
 
     private void setBoatPressedTile(GameObject tile)
     {
@@ -301,6 +307,7 @@ public class GameManager : MonoBehaviour
         playerTurn = false;
     }
 
+    //Button references
 
     void ReplayGamePressed()
     {
@@ -311,5 +318,13 @@ public class GameManager : MonoBehaviour
     void QuitGamePressed()
     {
         Application.Quit();
+    }
+
+    
+
+    private void PauseGamePressed()
+    {
+        Time.timeScale = 0.0f;
+        pauseMenu.Pause();
     }
 }

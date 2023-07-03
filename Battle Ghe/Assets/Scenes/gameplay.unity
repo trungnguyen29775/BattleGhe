@@ -283,8 +283,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11095302}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.3, y: 3.89, z: 3.49}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalPosition: {x: 18.482952, y: 2.3796358, z: 3.9826589}
+  m_LocalScale: {x: 1.4630872, y: 1.4630877, z: 1.4630877}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -302,10 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1a918d36a78d46b2e359349e2f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSize: 2
   xOffset: 0
   zOffset: 1.2
   nextZRotation: 90
-  boatSize: 2
 --- !u!54 &11095306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -415,8 +415,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51525442}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.4, y: 3.89, z: -1.65}
-  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
+  m_LocalPosition: {x: 18.6, y: 2.3796358, z: -1}
+  m_LocalScale: {x: 1.1587651, y: 1.1587654, z: 1.1587654}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -434,10 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1a918d36a78d46b2e359349e2f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSize: 3
   xOffset: 0
   zOffset: 0
   nextZRotation: 90
-  boatSize: 3
 --- !u!54 &51525446
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -569,8 +569,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111985273}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 14.419999, y: 3.89, z: -1.88}
-  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
+  m_LocalPosition: {x: 15.1119995, y: 2.3796358, z: -1.269208}
+  m_LocalScale: {x: 1.1587651, y: 1.1587654, z: 1.1587654}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -617,10 +617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1a918d36a78d46b2e359349e2f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSize: 3
   xOffset: 0
   zOffset: 0
   nextZRotation: 90
-  boatSize: 3
 --- !u!114 &121800316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1785566764079609169, guid: b7acd71e44cf59648bd27beffe2c905d, type: 3}
@@ -1815,7 +1815,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.95
+  m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2085,8 +2085,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749626935}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 18, y: 3.7, z: 0.62}
-  m_LocalScale: {x: 9.88, y: 9, z: 0.06}
+  m_LocalPosition: {x: 19.302282, y: 2.1572456, z: 0.6234096}
+  m_LocalScale: {x: 11.564242, y: 10.534231, z: 0.07022821}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2247,7 +2247,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789936060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 254.00008}
+  m_LocalPosition: {x: 0, y: 0, z: 254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2258,7 +2258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 403, y: 377.00012}
+  m_AnchoredPosition: {x: 427, y: 398}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &794751989
@@ -3895,29 +3895,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - name: backgroundMusic
-    clip: {fileID: 8300000, guid: 7096920173132654ca4e7e6b1c00d029, type: 3}
-  - name: oceanSound
-    clip: {fileID: 8300000, guid: af3a0b32957e3d044b9498e25af4a2d8, type: 3}
-  - name: theme
-    clip: {fileID: 8300000, guid: 7096920173132654ca4e7e6b1c00d029, type: 3}
+  - clip: {fileID: 8300000, guid: 7096920173132654ca4e7e6b1c00d029, type: 3}
+    name: backgroundMusic
+  - clip: {fileID: 8300000, guid: af3a0b32957e3d044b9498e25af4a2d8, type: 3}
+    name: oceanSound
+  - clip: {fileID: 8300000, guid: 7096920173132654ca4e7e6b1c00d029, type: 3}
+    name: theme
   sfxSound:
-  - name: shoot
-    clip: {fileID: 8300000, guid: ce717da12a32610418dc61306c7072a5, type: 3}
-  - name: burn
-    clip: {fileID: 8300000, guid: fc86d0530f21a8c4aa1252045c2a79ca, type: 3}
-  - name: hitBoat
-    clip: {fileID: 8300000, guid: ba6000c471fd5c34da023deaaf40de0c, type: 3}
-  - name: hitEmpty
-    clip: {fileID: 8300000, guid: 20f5b5bf3e482f647afbd257b6cfc441, type: 3}
-  - name: shoot2
-    clip: {fileID: 8300000, guid: 4d006058c97f57a4ba3e7a0c8f0f4ff0, type: 3}
-  - name: explode
-    clip: {fileID: 8300000, guid: 54ee4348501159347be0d19cfe9d1000, type: 3}
-  - name: wave
-    clip: {fileID: 8300000, guid: e265eb3bd77587a4999f638bbfa4c05c, type: 3}
-  - name: clicked
-    clip: {fileID: 8300000, guid: a00a824eb12eb1d4e8e06d8000a0d7cf, type: 3}
+  - clip: {fileID: 8300000, guid: ce717da12a32610418dc61306c7072a5, type: 3}
+    name: shoot
+  - clip: {fileID: 8300000, guid: fc86d0530f21a8c4aa1252045c2a79ca, type: 3}
+    name: burn
+  - clip: {fileID: 8300000, guid: ba6000c471fd5c34da023deaaf40de0c, type: 3}
+    name: hitBoat
+  - clip: {fileID: 8300000, guid: 20f5b5bf3e482f647afbd257b6cfc441, type: 3}
+    name: hitEmpty
+  - clip: {fileID: 8300000, guid: 4d006058c97f57a4ba3e7a0c8f0f4ff0, type: 3}
+    name: shoot2
+  - clip: {fileID: 8300000, guid: 54ee4348501159347be0d19cfe9d1000, type: 3}
+    name: explode
+  - clip: {fileID: 8300000, guid: e265eb3bd77587a4999f638bbfa4c05c, type: 3}
+    name: wave
+  - clip: {fileID: 8300000, guid: a00a824eb12eb1d4e8e06d8000a0d7cf, type: 3}
+    name: clicked
   musicSource: {fileID: 1354262736}
   sfxSource: {fileID: 313192117}
 --- !u!4 &1468023872
@@ -4116,8 +4116,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572591080}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 14.339999, y: 3.89, z: 3.43}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalPosition: {x: 15.018362, y: 2.3796368, z: 3.9124312}
+  m_LocalScale: {x: 1.4630872, y: 1.4630877, z: 1.4630877}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -4135,10 +4135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1a918d36a78d46b2e359349e2f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSize: 2
   xOffset: 0
   zOffset: 1.2
   nextZRotation: 90
-  boatSize: 2
 --- !u!54 &1572591084
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5128,8 +5128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819682620}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 20.89, y: 3.89, z: 1.08}
-  m_LocalScale: {x: 0.82, y: 0.99180984, z: 0.7809524}
+  m_LocalPosition: {x: 21.8, y: 2.3796358, z: 1.1618265}
+  m_LocalScale: {x: 0.9597852, y: 1.1608839, z: 0.91408163}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -5163,10 +5163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1a918d36a78d46b2e359349e2f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSize: 4
   xOffset: 0
   zOffset: 1.5
   nextZRotation: 90
-  boatSize: 4
 --- !u!65 &1819682625
 BoxCollider:
   m_ObjectHideFlags: 0
